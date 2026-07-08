@@ -9,6 +9,20 @@ A reference implementation of a **PM / Competitive Intelligence Agent** built on
 
 ---
 
+## About
+
+Product managers spend hours every week hunting for competitive signals, synthesizing customer feedback, and updating stakeholders — work that is repetitive, time-consuming, and often left half-done.
+
+This project is a reference implementation of an **AI-powered PM agent** built on [Warp](https://www.warp.dev/). It ships as a set of composable [Warp skills](https://docs.warp.dev/) — each one a self-contained, agent-executable workflow — that together cover the full PM intelligence loop: gathering customer signals, monitoring competitors, drafting docs, and escalating issues.
+
+**Who it's for:** PMs and developer-tool teams who want to automate routine competitive and customer-intelligence work without building custom tooling from scratch.
+
+**How to use it:** Clone the repo, replace the placeholder values with your own service credentials and identifiers, open the project in Warp, and ask the agent in plain English (e.g. *"Create a WYNK for this week"* or *"Fix the P0 issues from the latest briefing"*). Warp routes the request to the right skill automatically.
+
+**Design philosophy:** Every skill is plain Python + shell — no proprietary framework lock-in. The agent layer is Warp, but the scripts are portable and can be adapted to other orchestration environments.
+
+---
+
 ## What it does
 
 This agent gives a PM the skills to:
