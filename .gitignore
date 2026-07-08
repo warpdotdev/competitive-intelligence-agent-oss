@@ -1,0 +1,30 @@
+# Secrets and credentials
+.env
+credentials.json
+token.json
+*.json.token
+gmail_token.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+.venv/
+
+# Generated report data (contain proprietary/confidential data)
+# Only .example.md and .gitkeep files should be committed
+reports/**/*.md
+!reports/**/*.example.md
+
+# IDE and OS
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+**/.DS_Store
