@@ -22,6 +22,7 @@ This agent gives a PM the skills to:
 | `fix_p0_issues` | Reads the weekly briefing, triages P0s, and spawns cloud coding agents |
 | `post_to_slack` | Posts messages to a Slack channel via incoming webhook |
 | `read_google_docs` | Reads content from a Google Doc by URL or document ID |
+| `setup` | Guides a Warp agent through deploying this repo end-to-end (see [How to deploy](#how-to-deploy)) |
 | `summarize_changelogs` | Summarizes competitor changelogs |
 | `summarize_google_docs` | Reads and summarizes recently modified Google Docs |
 | `votc_insights` | Extracts pain points, feature demand, and competitive signals from customer call transcripts (Grain) |
@@ -48,16 +49,21 @@ This agent gives a PM the skills to:
 
 ---
 
-## Requirements
+## How to deploy
 
-- Python 3.11+
-- [Warp](https://www.warp.dev/) (for running skills as an agent)
-- [GitHub CLI (`gh`)](https://cli.github.com/) — authenticated
-- [Warp `oz` CLI](https://docs.warp.dev/) — for the `fix_p0_issues` skill
+### Option A: Run the setup skill with Warp (recommended)
 
----
+Copy-paste this prompt into [Warp](https://www.warp.dev/):
 
-## Setup
+```
+Clone https://github.com/warpdotdev/competitive-intelligence-agent-oss.git if it isn't already cloned locally, cd into it, then run the setup skill at .warp/skills/setup/SKILL.md to set this agent up.
+```
+
+The agent will clone the repo (or reuse an existing clone), install dependencies, walk you through credentials for only the integrations you want, and replace the codebase placeholders with your values.
+
+### Option B: Manual setup (reference)
+
+Requirements: Python 3.11+, [Warp](https://www.warp.dev/), [GitHub CLI (`gh`)](https://cli.github.com/), and a Warp API key for the `fix_p0_issues` skill.
 
 ```bash
 # 1. Clone the repo
@@ -90,11 +96,9 @@ python3 generate_readonly_token.py
 > It writes `token.json`; for remote/cloud runs, set `GOOGLE_OAUTH_TOKEN` to the
 > contents of that file.
 
----
+### Placeholders to replace
 
-## Placeholders to replace
-
-Before using this, find and replace these placeholders in the codebase:
+Find and replace these placeholders in the codebase (the setup skill handles this for you):
 
 | Placeholder | What to replace it with | Files affected |
 |-------------|------------------------|----------------|
@@ -160,6 +164,7 @@ Warp will automatically select the appropriate skill and execute the workflow.
 │       ├── fix_p0_issues/
 │       ├── post_to_slack/
 │       ├── read_google_docs/
+│       ├── setup/
 │       ├── summarize_changelogs/
 │       ├── summarize_google_docs/
 │       ├── votc_insights/
