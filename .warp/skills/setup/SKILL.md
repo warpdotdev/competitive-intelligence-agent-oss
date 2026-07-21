@@ -25,6 +25,9 @@ Verify and report; offer install instructions for anything missing:
 - **Python 3.11+** — `python3 --version`
 - **GitHub CLI** — `gh --version` (needed for `analyze_customer_feedback` and report PRs)
 - **Warp** — the user is presumably already running the agent in Warp
+- **Oz CLI** — `oz whoami` (needed for `fix_p0_issues` and any Oz cloud runs):
+  - **Command not found** → if the [Warp app](https://docs.warp.dev/getting-started/installation-and-setup) is already installed, the CLI ships with it. Otherwise, prefer the standalone Oz CLI — there is no need to install the full Warp app just for the CLI. See [Installing the CLI](https://docs.warp.dev/reference/cli#installing-the-cli); on macOS: `brew tap warpdotdev/warp && brew install --cask oz`.
+  - **Not authenticated** → run `oz login` (interactive), or for CI/headless environments export `WARP_API_KEY`.
 
 ## Phase 2: Ask which integrations the user wants
 
